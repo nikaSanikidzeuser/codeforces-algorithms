@@ -6,3 +6,10 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
+let n;
+let m;
+ 
+rl.on("line",()=>{
+
+})
