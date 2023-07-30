@@ -18,7 +18,23 @@ rl.on("line", (line) => {
     const x = parseInt(data[0]);
     const y = parseInt(data[1]);
     dragons.push({ strength: x, bonus: y });
-    if ((n = dragons.length)) {
+    if (n === dragons.length) {
+      const result = calculation(s, dragons);
+      console.log(result ? "YES" : "NO");
+      rl.close();
     }
   }
 });
+
+function calculate(s, dragons) {
+  dragons.sort((a, b) => a.strength - b.strength);
+
+  for (const dragon of dragons) {
+    const { strength, bonus } = dragon;
+    if (strength >= s) {
+      return false;
+    }
+    s += bonus;
+  }
+  return true;
+}
