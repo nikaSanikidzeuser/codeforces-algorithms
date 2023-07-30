@@ -1,12 +1,11 @@
-
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-let s, n; 
-const dragons = []; 
+let s, n;
+const dragons = [];
 
 rl.on("line", (line) => {
   if (!s) {
@@ -19,8 +18,7 @@ rl.on("line", (line) => {
     const x = parseInt(data[0]);
     const y = parseInt(data[1]);
     dragons.push({ strength: x, bonus: y });
-    if(n = dragons.length){
-        
+    if ((n = dragons.length)) {
     }
   }
 });
