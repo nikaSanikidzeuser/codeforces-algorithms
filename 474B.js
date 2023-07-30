@@ -20,6 +20,24 @@ rl.on('line', (line) => {
     }
 });
 
+function binarySearch(arr, x) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] === x) {
+            return mid + 1;
+        } else if (arr[mid] < x) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return left + 1;
+}
+
 function findPilesForJuicyWorms(n, piles, m, juicyWorms) {
     const cumulativeSum = [piles[0]];
     for (let i = 1; i < n; i++) {
@@ -28,10 +46,7 @@ function findPilesForJuicyWorms(n, piles, m, juicyWorms) {
 
     for (let i = 0; i < m; i++) {
         const juicyWorm = juicyWorms[i];
-        let pileNumber = 1;
-        while (juicyWorm > cumulativeSum[pileNumber - 1]) {
-            pileNumber++;
-        }
+        const pileNumber = binarySearch(cumulativeSum, juicyWorm);
         console.log(pileNumber);
     }
 }
