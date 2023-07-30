@@ -19,7 +19,7 @@ rl.on("line", (line) => {
     const y = parseInt(data[1]);
     dragons.push({ strength: x, bonus: y });
     if (n === dragons.length) {
-      const result = calculation(s, dragons);
+      const result = calculate(s, dragons);
       console.log(result ? "YES" : "NO");
       rl.close();
     }
